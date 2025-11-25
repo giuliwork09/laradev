@@ -3,7 +3,7 @@ Este es un proyecto personal de Dockerizacion tanto de Laravel como de Maria DB,
 
 Para poder utilizar este proyecto, debe configurar un .env que contenga:
 - La ruta de sus proyectos PHP/Laravel. La variable es RUTA_DEV
-- La ruta de las bases de datos a importar, en formato sql. La variable es RUTA_SQÑ
+- La ruta de las bases de datos a importar, en formato sql. La variable es RUTA_SQL
 - Una contraseña para el usuario ROOT de forma local- La variable es MYSQL_ROOT_PASS
 - El usuario y contraseña del usuario DEV que utilizaran. Las variables son DEV_USER y DEV_PASS
 
