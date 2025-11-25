@@ -3,7 +3,7 @@ FROM alpine:latest
 #Instalamos apache
 RUN apk add apache2 apache2-utils apache2-ssl apache2-proxy
 #Instalamos php
-RUN apk add php php-apache2 php-session php-openssl php-iconv php-mysqli php-pdo php-mbstring php-json php-curl php-zip php-phar
+RUN apk add php php-apache2 php-session php-openssl php-iconv php-mysqli php-pdo php-mbstring php-json php-curl php-zip php-phar php8-cli php8-common php8-tokenizer php8-ctype
 #Preparamos el composer
 RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
 RUN php composer-setup.php --install-dir=/usr/local/bin --filename=composer

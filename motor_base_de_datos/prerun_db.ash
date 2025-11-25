@@ -1,8 +1,6 @@
 #!/bin/ash
 set -e
 
-echo "HOLA"
-
 # Inicialización solo si la DB de sistema no existe
 if [ ! -d /var/lib/mysql/mysql ]; then
     mariadb-install-db --user=mysql --datadir=/var/lib/mysql --auth-root-authentication-method=normal
