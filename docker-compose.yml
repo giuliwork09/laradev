@@ -1,0 +1,36 @@
+services:
+  servicio_web_laradev:
+    build:
+      context: ./motor_web
+    privileged: true
+    container_name: "web_laradev"
+    ports:
+      - "80:80"
+      - "443:443"
+    stdin_open: true
+    tty: true
+    attach: false
+    volumes:
+     - "${RUTA_DEV}:/var/www/localhost/htdocs/"
+  servicio_base_de_datos_laradev:
+    build:
+      context: ./motor_base_de_datos
+      args:
+        MYSQL_ROOT_PASS: "${MYSQL_ROOT_PASS}"
+        DEV_USER: "${DEV_USER}"
+        DEV_PASS: "${DEV_PASS}"
+    environment:
+      - MYSQL_ROOT_PASS=${MYSQL_ROOT_PASS}
+      - DEV_USER=${DEV_USER}
+      - DEV_PASS=${DEV_PASS}
+    privileged: true
+    container_name: "motor_base_de_datos_laradev"
+    ports:
+      - "3306:3306"
+    stdin_open: true
+    tty: true
+    attach: false  
+    volumes:
+    - "${RUTA_SQL}:/dbs"
+
+#El volumes se carga con un .env con nombre RUTA_DEV

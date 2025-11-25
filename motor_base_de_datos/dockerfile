@@ -1,0 +1,20 @@
+#Preparamos sistema operativo
+FROM alpine:latest
+#Pasar argumentos
+ARG MYSQL_ROOT_PASS
+ARG DEV_USER
+ARG DEV_PASS
+ENV MYSQL_ROOT_PASS=$MYSQL_ROOT_PASS
+ENV DEV_USER=$DEV_USER
+ENV DEV_PASS=$DEV_PASS
+#Instalamos maria db mysql
+RUN apk add mariadb mariadb-client mariadb-openrc
+#Preparaciones previas
+RUN mkdir -p /run/mysqld && \
+    chown -R mysql:mysql /run/mysqld
+RUN mkdir -p /var/lib/mysql && \
+    chown -R mysql:mysql /var/lib/mysql
+COPY prerun_db.ash /prerun_db.ash
+RUN chmod +x prerun_db.ash
+#Correr motor db
+ENTRYPOINT ["/prerun_db.ash"]
