@@ -7,12 +7,11 @@ services:
     ports:
       - "80:8000"
       - "5173:5173"
-      - "443:443"
     stdin_open: true
     tty: true
     attach: false
     volumes:
-     - "${RUTA_DEV}:/var/www/localhost/htdocs/"
+     - "${RUTA_DEV}:/proyecto"
   servicio_base_de_datos_laradev:
     build:
       context: ./motor_base_de_datos
@@ -33,5 +32,3 @@ services:
     attach: false  
     volumes:
     - "${RUTA_SQL}:/dbs"
-
-#El volumes se carga con un .env con nombre RUTA_DEV
