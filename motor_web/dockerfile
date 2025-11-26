@@ -1,9 +1,12 @@
 #Preparamos un OS liviano para los proyectos, alpine es la opcion
 FROM alpine:latest 
+RUN apk update
 #Instalamos apache
 RUN apk add apache2 apache2-utils apache2-ssl apache2-proxy
 #Instalamos php
 RUN apk add php php-pdo php-pdo_mysql php-pdo_sqlite php-sqlite3 php-mysqli php-mysqlnd php-apache2 php-session php-openssl php-iconv php-mbstring php-intl php-exif php-json php-curl php-zip php-xml php-xmlwriter php-xmlreader php-phar php-cli php-common php-tokenizer php-ctype php-dom php-fileinfo
+#Instalar node, npm y yarn por las dudas
+RUN apk add nodejs npm yarn
 #icu-libs mariadb-conector-c libxml2 sqlite-libs libjpeg-turbo
 #Preparamos el composer
 RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
