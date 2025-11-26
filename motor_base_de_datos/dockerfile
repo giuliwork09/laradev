@@ -7,6 +7,8 @@ ARG DEV_PASS
 ENV MYSQL_ROOT_PASS=$MYSQL_ROOT_PASS
 ENV DEV_USER=$DEV_USER
 ENV DEV_PASS=$DEV_PASS
+#Update por las dudas
+RUN apk update
 #Instalamos maria db mysql
 RUN apk add mariadb mariadb-client mariadb-openrc
 #Preparaciones previas

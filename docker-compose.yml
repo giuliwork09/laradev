@@ -5,7 +5,8 @@ services:
     privileged: true
     container_name: "web_laradev"
     ports:
-      - "80:80"
+      - "80:8000"
+      - "5173:5173"
       - "443:443"
     stdin_open: true
     tty: true
